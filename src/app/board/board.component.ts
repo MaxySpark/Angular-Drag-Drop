@@ -11,8 +11,7 @@ import { data } from './shared/data';
 })
 export class BoardComponent {
 
-  title = 'angular-drag-drop';
-  private tracks: Track[] = data;
+  tracks: Track[] = data;
 
   /**
    * An array of all track ids. Each id is associated with a `cdkDropList` for the
@@ -26,12 +25,22 @@ export class BoardComponent {
     // In case the destination container is different from the previous container, we
     // need to transfer the given task to the target data array. This happens if
     // a task has been dropped on a different track.
+    const eventData = {
+      id: event.item.element.nativeElement.id,
+      previousContainerId: event.previousContainer.id,
+      currentContainerId: event.container.id,
+      previousContainerData: event.previousContainer.data,
+      currentContainerData: event.container.data,
+    };
+
 
     if (event.previousContainer === event.container) {
-      console.log(event);
+      delete eventData.previousContainerData;
+      delete eventData.previousContainerId;
+      console.log(eventData);
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      console.log(event);
+      console.log(eventData);
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
@@ -40,8 +49,6 @@ export class BoardComponent {
   }
 
   onTrackDrop(event: CdkDragDrop<Track[]>) {
-    console.log(event);
-    alert('ok');
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   }
 

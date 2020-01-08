@@ -9,10 +9,10 @@
             [cdkDropListConnectedTo]="trackIds" (cdkDropListDropped)="onTalkDrop($event)">
 
 
-            <div class="card" *ngFor="let task of track.tasks" cdkDrag>
+            <div class="card" [id]="task.id" *ngFor="let task of track.tasks" cdkDrag>
                 <div class="card-block">
                     <h3 class="card-title">{{task.title}}</h3>
-                    <p class="card-text" *ngIf="author">
+                    <p class="card-text">
                         {{task.description}}
                     </p>
                 </div>
