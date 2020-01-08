@@ -4,7 +4,7 @@
         "id": "todo",
         "tasks": [
             {
-                "id": "1",
+                "id": "first-task",
                 "title": "First Task",
                 "description": "This is my first task"
             }
@@ -15,8 +15,8 @@
         "id": "inprogress",
         "tasks": [
             {
-                "id": "2",
-                "title": "First Task",
+                "id": "seconf-task",
+                "title": "Second Task",
                 "description": "This is my first task"
             }
         ]
@@ -26,8 +26,8 @@
         "id": "ddone",
         "tasks": [
             {
-                "id": "3",
-                "title": "First Task",
+                "id": "third-task",
+                "title": "Third Task",
                 "description": "This is my first task"
             }
         ]
@@ -37,8 +37,8 @@
         "id": "qapass",
         "tasks": [
             {
-                "id": "4",
-                "title": "First Task",
+                "id": "fourth-task",
+                "title": "Fourth Task",
                 "description": "This is my first task"
             }
         ]

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Track, Task } from './shared/Track.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import * as data from './shared/data.json';
+import { data } from './shared/data';
+// import * as data from './shared/data.json';
 
 @Component({
   selector: 'app-board',
@@ -26,21 +27,22 @@ export class BoardComponent {
     // need to transfer the given task to the target data array. This happens if
     // a task has been dropped on a different track.
 
-    // console.log('abc');
-    // if (event.previousContainer === event.container) {
-    //   moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    // } else {
-    //   transferArrayItem(event.previousContainer.data,
-    //     event.container.data,
-    //     event.previousIndex,
-    //     event.currentIndex);
-    // }
+    if (event.previousContainer === event.container) {
+      console.log(event);
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log(event);
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 
   onTrackDrop(event: CdkDragDrop<Track[]>) {
-    // console.log(event);
-    // alert('ok');
-    // moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    console.log(event);
+    alert('ok');
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   }
 
 }
